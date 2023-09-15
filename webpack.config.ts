@@ -7,7 +7,8 @@ import { IBuildEnvs, IBuildPaths } from "./config/build/types/config";
 const paths: IBuildPaths = {
   entry: join(__dirname, 'src', 'index.tsx'),
   build: join(__dirname, 'build'),
-  html: join(__dirname, 'public', 'index.html')
+  html: join(__dirname, 'public', 'index.html'),
+  src: join(__dirname, 'src'),
 }
 
 export default (env: IBuildEnvs) => {

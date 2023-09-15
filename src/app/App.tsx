@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import { useRoutes } from "../hooks/useRoutes";
-import { useTheme } from "../theme/hooks/useTheme";
-import { Header } from "./Header/Header";
-import { classNames } from "../helpers/classNames/classNames";
-import '../styles/index.scss';
+import { useRoutes } from "./hooks/useRoutes";
+import { Header } from "../components/Header/Header";
+import { classNames } from "../shared/lib/classNames";
+import { useTheme } from "./providers/ThemeProvider";
+import './styles/index.scss';
 
 export const App: FC = () => {
   const routes = useRoutes();

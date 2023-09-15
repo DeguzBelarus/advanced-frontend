@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { MainPageLazy } from "../pages/MainPage/MainPage.lazy";
-import { AboutPageLazy } from "../pages/AboutPage/AboutPage.lazy";
+import { MainPageLazy } from "pages/MainPage";
+import { AboutPageLazy } from "pages/AboutPage";
 
 export const useRoutes = () => {
   return <Suspense fallback={<span>loading...</span>}>

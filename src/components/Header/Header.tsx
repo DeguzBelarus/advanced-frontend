@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { IUseThemeResult } from "../../theme/hooks/useTheme";
+import { IUseThemeResult } from "app/providers/ThemeProvider/lib/useTheme";
 import styles from './Header.module.scss';
 
 export const Header: FC<IUseThemeResult> = ({ theme, themeHandler }) => {
