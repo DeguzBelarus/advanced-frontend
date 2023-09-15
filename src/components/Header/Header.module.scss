@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  gap: 5px;
+
+  .theme-handler-button {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    cursor: pointer;
+  }
+}

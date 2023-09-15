@@ -1,0 +1,28 @@
+@import './variables/global.scss';
+@import './themes/default.scss';
+@import './themes/dark.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  font: var(--font-m);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
