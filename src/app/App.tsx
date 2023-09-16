@@ -7,9 +7,9 @@ import { Header } from "widgets/Header";
 import './styles/index.scss';
 
 export const App: FC = () => {
-  const { theme, themeHandler } = useTheme();
+  const { theme } = useTheme();
   return <div className={classNames('app', [theme])}>
-    <Header theme={theme} themeHandler={themeHandler} />
+    <Header />
     <AppRouter />
   </div>
 }; 

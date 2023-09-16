@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeType } from "./ThemeContext";
 
 export interface IUseThemeResult {
-  theme: ThemeType;
-  themeHandler: () => void;
+  theme?: ThemeType;
+  themeHandler?: () => void;
 }
 
 export const useTheme = (): IUseThemeResult => {
