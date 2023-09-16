@@ -25,3 +25,11 @@ select {
   background-color: var(--bg-color);
   color: var(--primary-color);
 }
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+}

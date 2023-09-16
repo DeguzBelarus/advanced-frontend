@@ -1,4 +1,4 @@
-.header {
+.Header {
   width: 100%;
   height: var(--navbar-height);
   display: flex;
@@ -6,12 +6,11 @@
   align-items: center;
   gap: 8px;
   background-color: var(--inverted-bg-color);
-  padding-inline: 5px;
+  padding-inline: 8px;
+}
 
-  .theme-handler-button {
-    background-color: #fff;
-    border: 1px solid #000;
-    color: #000;
-    cursor: pointer;
-  }
+.links-container {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
 }
