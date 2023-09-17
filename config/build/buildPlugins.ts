@@ -1,11 +1,11 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
-import { ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
-import { IBuildPaths } from "./types/config";
+import { IBuildOptions } from "./types/config";
 
-export function buildPlugins(options: IBuildPaths): WebpackPluginInstance[] {
-  const { html } = options;
+export function buildPlugins(options: IBuildOptions): WebpackPluginInstance[] {
+  const { paths: { html }, isDevelopment } = options;
   return [new HTMLWebpackPlugin({
     template: html,
   }),
@@ -13,5 +13,8 @@ export function buildPlugins(options: IBuildPaths): WebpackPluginInstance[] {
   new MiniCSSExtractPlugin({
     filename: 'css/[name].[contenthash:8].css',
     chunkFilename: 'css/[name].[contenthash:8].css'
+  }),
+  new DefinePlugin({
+    __IS_DEVELOPMENT__: JSON.stringify(isDevelopment),
   })]
 }
