@@ -1,20 +1,32 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import { DefinePlugin, ProgressPlugin, WebpackPluginInstance, HotModuleReplacementPlugin } from 'webpack';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
 import { IBuildOptions } from "./types/config";
 
-export function buildPlugins(options: IBuildOptions): WebpackPluginInstance[] {
+export function buildPlugins(options: IBuildOptions): Array<WebpackPluginInstance> {
   const { paths: { html }, isDevelopment } = options;
-  return [new HTMLWebpackPlugin({
+  let webpackPlugins: Array<WebpackPluginInstance> = [];
+  const htmlWebpackPlugin = new HTMLWebpackPlugin({
     template: html,
-  }),
-  new ProgressPlugin(),
-  new MiniCSSExtractPlugin({
+  });
+  const progressPlugin = new ProgressPlugin();
+  const miniCSSExtractPlugin = new MiniCSSExtractPlugin({
     filename: 'css/[name].[contenthash:8].css',
     chunkFilename: 'css/[name].[contenthash:8].css'
-  }),
-  new DefinePlugin({
+  });
+  const isDevelopmentVariablePlugin = new DefinePlugin({
     __IS_DEVELOPMENT__: JSON.stringify(isDevelopment),
-  })]
+  });
+
+  if (isDevelopment) {
+    const hotModuleReplacementPlugin = new HotModuleReplacementPlugin();
+    webpackPlugins.push(hotModuleReplacementPlugin);
+  }
+  webpackPlugins = [...webpackPlugins,
+    htmlWebpackPlugin,
+    progressPlugin,
+    miniCSSExtractPlugin,
+    isDevelopmentVariablePlugin];
+  return webpackPlugins;
 }

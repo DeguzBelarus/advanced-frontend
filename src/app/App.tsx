@@ -7,7 +7,7 @@ import { Header } from "widgets/Header";
 import { SideBar } from "widgets/SideBar";
 import './styles/index.scss';
 
-export const App: FC = () => {
+export const App: FC = (): JSX.Element => {
   const { theme } = useTheme();
   return <div className={classNames('app', [theme])}>
     <Suspense fallback=''>
