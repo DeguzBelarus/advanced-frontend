@@ -5,10 +5,6 @@ import { IBuildOptions } from "./types/config";
 
 export function buildLoaders(options: IBuildOptions): RuleSetRule[] {
   const { isDevelopment } = options;
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: [
@@ -16,6 +12,23 @@ export function buildLoaders(options: IBuildOptions): RuleSetRule[] {
         loader: 'file-loader',
       },
     ],
+  };
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env'],
+        "plugins": [
+          ["i18next-extract", { locales: ['ru', 'en'], keyAsDefaultValueForDerivedKeys: true }],
+        ]
+      }
+    }
   };
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -39,5 +52,5 @@ export function buildLoaders(options: IBuildOptions): RuleSetRule[] {
       "sass-loader",
     ],
   };
-  return [fileLoader, svgLoader, typescriptLoader, cssLoader]
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader]
 }
