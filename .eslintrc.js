@@ -6,7 +6,8 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "standard-with-typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:i18next/recommended"
   ],
   "env": {
     "browser": true,
@@ -22,7 +23,7 @@ module.exports = {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks"],
+  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks", "i18next"],
   "settings": {
     "react": {
       "pragma": "React",
@@ -74,6 +75,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
+    "i18next/no-literal-string": 2
   },
   "ignorePatterns": [".eslintrc.js"],
   globals: {
