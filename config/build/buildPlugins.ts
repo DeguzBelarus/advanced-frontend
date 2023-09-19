@@ -1,28 +1,33 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
+import { DefinePlugin, ProgressPlugin, type WebpackPluginInstance } from 'webpack';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
-import { IBuildOptions } from "./types/config";
+import { type IBuildOptions } from './types/config';
 
-export function buildPlugins(options: IBuildOptions): Array<WebpackPluginInstance> {
-  const { paths: { html }, isDevelopment } = options;
-  let webpackPlugins: Array<WebpackPluginInstance> = [];
+export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] => {
+  const {
+    paths: { html },
+    isDevelopment,
+  } = options;
+  let webpackPlugins: WebpackPluginInstance[] = [];
   const htmlWebpackPlugin = new HTMLWebpackPlugin({
     template: html,
   });
   const progressPlugin = new ProgressPlugin();
   const miniCSSExtractPlugin = new MiniCSSExtractPlugin({
     filename: 'css/[name].[contenthash:8].css',
-    chunkFilename: 'css/[name].[contenthash:8].css'
+    chunkFilename: 'css/[name].[contenthash:8].css',
   });
   const isDevelopmentVariablePlugin = new DefinePlugin({
     __IS_DEVELOPMENT__: JSON.stringify(isDevelopment),
   });
 
-  webpackPlugins = [...webpackPlugins,
+  webpackPlugins = [
+    ...webpackPlugins,
     htmlWebpackPlugin,
     progressPlugin,
     miniCSSExtractPlugin,
-    isDevelopmentVariablePlugin];
+    isDevelopmentVariablePlugin,
+  ];
   return webpackPlugins;
-}
+};

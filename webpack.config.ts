@@ -1,15 +1,15 @@
-import { join } from "path";
-import { Configuration } from 'webpack';
+import { join } from 'path';
+import { type Configuration } from 'webpack';
 
-import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import { IBuildEnvs, IBuildPaths } from "./config/build/types/config";
+import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+import { type IBuildEnvs, type IBuildPaths } from './config/build/types/config';
 
 const paths: IBuildPaths = {
   entry: join(__dirname, 'src', 'index.tsx'),
   build: join(__dirname, 'build'),
   html: join(__dirname, 'public', 'index.html'),
   src: join(__dirname, 'src'),
-}
+};
 
 export default (env: IBuildEnvs) => {
   const mode = env.mode || 'development';
@@ -22,5 +22,5 @@ export default (env: IBuildEnvs) => {
     isDevelopment,
     port: PORT,
   });
-  return webpackConfig
+  return webpackConfig;
 };
