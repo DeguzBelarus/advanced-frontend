@@ -77,9 +77,13 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": 'error',
+    "max-len": ["error", {
+      "ignoreComments": true,
+      "code": 120
+    }]
   },
   "ignorePatterns": [".eslintrc.js"],
-  globals: {
+  "globals": {
     '__IS_DEVELOPMENT': true,
   }
 }
