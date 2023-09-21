@@ -1,6 +1,7 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { DefinePlugin, ProgressPlugin, type WebpackPluginInstance } from 'webpack';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type IBuildOptions } from './types/config';
 
@@ -18,6 +19,9 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
     filename: 'css/[name].[contenthash:8].css',
     chunkFilename: 'css/[name].[contenthash:8].css',
   });
+  const bundleAnalyzerPlugin = new BundleAnalyzerPlugin({
+    openAnalyzer: false,
+  });
   const isDevelopmentVariablePlugin = new DefinePlugin({
     __IS_DEVELOPMENT__: JSON.stringify(isDevelopment),
   });
@@ -28,6 +32,7 @@ export const buildPlugins = (options: IBuildOptions): WebpackPluginInstance[] =>
     progressPlugin,
     miniCSSExtractPlugin,
     isDevelopmentVariablePlugin,
+    bundleAnalyzerPlugin,
   ];
   return webpackPlugins;
 };
