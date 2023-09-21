@@ -45,6 +45,7 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-floating-promises": ["off"],
     "comma-dangle": ["error", "only-multiline"],
     "prettier/prettier": ["error", {
       "endOfLine": "auto"
@@ -75,7 +76,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
-    "i18next/no-literal-string": 2
+    "i18next/no-literal-string": 'error',
   },
   "ignorePatterns": [".eslintrc.js"],
   globals: {
