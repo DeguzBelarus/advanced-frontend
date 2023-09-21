@@ -23,7 +23,7 @@ export const LangSwitcher: FC<Props> = ({ className = '' }) => {
         await toggleLanguage();
       }}
     >
-      {language.toUpperCase()}
+      {language.includes('EN') ? 'EN' : language.toUpperCase()}
     </Button>
   );
 };
