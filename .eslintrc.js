@@ -64,7 +64,7 @@ module.exports = {
     "react/jsx-props-no-spreading": "warn",
     "react/require-default-props": "off",
     "react/function-component-definition": [
-      2,
+      "error",
       {
         namedComponents: "arrow-function",
         unnamedComponents: "arrow-function",
@@ -76,12 +76,21 @@ module.exports = {
     "no-unused-vars": "warn",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
-    "i18next/no-literal-string": 'warn',
+    "i18next/no-literal-string": ["warn", {
+      markupOnly: true,
+      ignoreAllAttributes: true
+    }, ],
     "max-len": ["error", {
       "ignoreComments": true,
       "code": 120
     }]
   },
+  "overrides": [{
+    files: ['**/src/**/*.test{ts, tsx}'],
+    rules: {
+      "i18next/no-literal-string": "off"
+    }
+  }],
   "ignorePatterns": [".eslintrc.js"],
   "globals": {
     '__IS_DEVELOPMENT': true,
