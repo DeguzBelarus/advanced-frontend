@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './PageLoader.module.scss';
 
 interface Props {

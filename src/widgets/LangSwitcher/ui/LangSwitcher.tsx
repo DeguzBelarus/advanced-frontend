@@ -1,8 +1,8 @@
 import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './LangSwitcher.module.scss';
 
 interface Props {
@@ -12,8 +12,7 @@ interface Props {
 export const LangSwitcher: FC<Props> = ({ className = '' }) => {
   const {
     i18n: { changeLanguage, language },
-  } = useTranslation();
-
+  } = useTranslation('translation');
   const toggleLanguage = async () => await changeLanguage(language === 'en' ? 'ru' : 'en');
   return (
     <Button
@@ -23,7 +22,7 @@ export const LangSwitcher: FC<Props> = ({ className = '' }) => {
         await toggleLanguage();
       }}
     >
-      {language.includes('EN') ? 'EN' : language.toUpperCase()}
+      {language?.includes('EN') || language?.includes('en') ? 'EN' : 'RU'}
     </Button>
   );
 };

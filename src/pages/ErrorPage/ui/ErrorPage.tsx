@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import styles from './ErrorPage.module.scss';
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const ErrorPage: FC<Props> = ({ className = '', errorMessage }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   return (
     <div className={classNames(styles.ErrorPage, [className])}>
       <p className={classNames(styles['error-paragraph'])}>{`${t(

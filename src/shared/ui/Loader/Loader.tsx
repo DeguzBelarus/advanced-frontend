@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Loader.module.scss';
 
 interface Props {

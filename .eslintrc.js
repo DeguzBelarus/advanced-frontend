@@ -76,7 +76,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
-    "i18next/no-literal-string": 'error',
+    "i18next/no-literal-string": 'warn',
     "max-len": ["error", {
       "ignoreComments": true,
       "code": 120

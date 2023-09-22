@@ -1,10 +1,10 @@
 import { type FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from '../../../shared/assets/icons/light-theme-icon.svg';
 import DarkIcon from '../../../shared/assets/icons/dark-theme-icon.svg';
 import { Button, ThemeButtonEnum } from 'shared/ui/Button/Button';
+import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './ThemeSwitcher.module.scss';
 
 interface Props {

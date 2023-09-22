@@ -1,6 +1,6 @@
 import { type FC, Suspense } from 'react';
 
-import { classNames } from '../shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 import { Header } from 'widgets/Header';

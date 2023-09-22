@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
 import { AppLink } from 'shared/ui';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLinkThemeEnum } from 'shared/ui/AppLink/AppLink';
 import styles from './Header.module.scss';
 
